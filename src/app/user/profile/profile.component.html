@@ -1,0 +1,51 @@
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="!isLoading" class="container">
+  <div class="profile"><img src="/assets/profile.png" alt="default user">
+    <h3>User Info:</h3>
+    <ng-container *ngIf="inUpdateMode">
+      <form #form="ngForm" (ngSubmit)="updateProfile(form)">
+        <div class="flex">
+          <p>Username: </p>
+          <input type="text" name="username" id="username" [ngModel]="user!.username">
+        </div>
+        <div class="flex">
+          <p>Email: </p>
+          <input type="email" name="email" id="email" [ngModel]="user!.email">
+        </div>
+       
+        <button type="button" class="red-button" (click)="inUpdateMode = false">Cancel</button>
+        <button class="green-button">Save</button>
+      </form>
+    </ng-container>
+    <ng-container>
+      <div class="flex">
+        
+        <p>Username: </p>
+        <p>{{user!.username}}</p>
+      </div>
+      <div class="flex">
+        <p>Email: </p>
+        <p>{{user!.email}}</p>
+      </div>
+      <div class="flex">
+        <p>Type: </p>
+        <p>{{user!.type}}</p>
+      </div>
+      <div class="">
+        <div class="theme" *ngIf="themes">
+          <p>Shifts: </p>
+          <div *ngFor="let theme of themes" class="theme-container">
+           
+                  <div> 
+                    <p>Date:{{theme.date}} {{theme.themeName | shorten : 10}}</p>              
+                   
+                  </div>
+          </div>
+        </div>
+        <div *ngIf="!themes">Loading...</div>
+      
+      </div>
+      <button (click)="inUpdateMode = true" class="edit-button">Edit</button>
+    </ng-container>
+  </div>
+</div>

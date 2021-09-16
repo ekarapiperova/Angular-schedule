@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="new-theme-border">
+    <div class="header-background">
+      <span>New Theme</span>
+    </div>
+    
+    <form #form="ngForm"  (ngSubmit)="createTheme(form)">
+      <div class="new-theme-title">
+        <label for="themeName">Title <span class="red">*</span></label>
+        <select type="themeName" id="themeName" name="themeName"
+        ngModel required>
+         <option value="default">----</option>
+         <option value="first">1</option>
+         <option value="second">2</option>
+         <option value="break">break</option>
+     </select>   
+      
+    <p class="field field-icon">
+      
+      </p>
+        <label for="date">Date <span class="red">*</span></label>
+        <input type="date" id="date" name="date"
+        ngModel required>
+        </div>
+
+        <label for="user">Worker <span class="red">*</span></label>
+        <select type="text" id="username" name="username"
+         ngModel required>
+          <option value="default"  >----</option>
+          <option *ngFor="let user of users" [value]="user.username" >
+             {{user.username}} 
+          </option>
+      </select>
+     
+      <div class="new-theme-buttons">
+        <button type="button" routerLink="/" class="cancel">Cancel</button>
+        <button class="public">Post</button>
+      </div>
+
+    </form>
+  </div>
+</div>

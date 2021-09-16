@@ -1,0 +1,17 @@
+<div class="container">
+  <!-- theme content  -->
+  <div *ngIf="theme" class="theme-content">
+    <!-- theme-title  -->
+    <div class="theme-title">
+      <div class="theme-name-wrapper">
+        <div class="theme-name">
+          <p>Worker: {{theme!.username}}</p>
+          <p>Shift: {{theme!.themeName | shorten : 10 }}</p>
+          <p>Date:{{theme!.date}}</p>
+         
+        </div>
+  <button class="button" (click)="deleteTheme()" >Delete</button>
+      </div>
+    </div>   
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<app-welcome-message *ngIf="!isLogged" [isLogged]="false"></app-welcome-message>
+<div class="container">
+  
+  <main>
+    
+    <div class="theme-title" *ngIf="themes">
+      <div class="columns">
+        <p>Date</p>
+        <p>Shift</p>
+        <p>Worker</p>
+                  
+      </div>
+      <div *ngFor="let theme of themes" class="theme-container">
+        
+        <div class="theme-name-wrapper" [routerLink]="['/theme', theme._id]">
+          <div class="theme-name">
+           
+            <div class="columns">
+              <p>{{theme.date}}</p>
+              <p>{{theme.themeName}}</p>
+              <p>{{theme.username}}</p>
+                        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!themes">Loading...</div>
+  </main>
+
+  <ng-template #recentPostTemplate let-item let-index="index">
+ 
+     
+  </ng-template>
+
+ 
+</div>

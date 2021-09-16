@@ -1,0 +1,20 @@
+<div class="welcome">
+  <h3>Welcome!</h3>
+  <p>Work schedule is a place, where you can add your work shifts, you can add or delete the shift. </p>
+  <div class="logged" *ngIf="!isLogged">
+    <ul>
+      <li>
+        <a routerLink="/user/login">
+          <i class="fas fa-sign-in-alt"></i>
+          Login
+        </a>
+      </li>
+      <li>
+        <a routerLink="/user/register">
+          <i class="fas fa-user-plus"></i>
+          Register
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
