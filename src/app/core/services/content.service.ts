@@ -8,7 +8,7 @@ export class ContentService {
   constructor(private http: HttpClient) { }
 
   loadTheme(id: string) {
-    return this.http.get<ITheme>(`/api/themes/${id}`);
+    return this.http.get<ITheme>(`/api/themes/detail/${id}`);
   }
 
   loadThemes() {

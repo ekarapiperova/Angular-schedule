@@ -13,8 +13,8 @@ router.delete('/:themeId', auth(), themeController.deleteTheme);
 
 router.post('/',auth(), themeController.createTheme);
 
-router.get('/:themeId', themeController.getTheme);
+router.get('/detail/:themeId', themeController.getTheme);
 
-// router.get('/my-trips/:id/reservations', auth(), themeController.getReservations);
+
 
 module.exports = router

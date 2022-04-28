@@ -12,11 +12,11 @@
       </div>
       <div *ngFor="let theme of themes" class="theme-container">
         
-        <div class="theme-name-wrapper" [routerLink]="['/theme', theme._id]">
+        <div class="theme-name-wrapper">
           <div class="theme-name">
            
-            <div class="columns">
-              <p>{{theme.date}}</p>
+            <div class="columns" [routerLink]="['/theme/detail/', theme._id]">
+              <p>{{theme.date | shorten : 10}}</p>
               <p>{{theme.themeName}}</p>
               <p>{{theme.username}}</p>
                         

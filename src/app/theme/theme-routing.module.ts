@@ -10,7 +10,17 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: ThemesComponent
-  }, {
+  }, 
+  {
+    path: 'detail/:themeId',
+    component: ThemeComponent,
+    canActivate: [AuthActivate],
+    data: {
+      authenticationRequired: true,
+      authenticationFailureRedirectUrl: '/',
+    }
+  },
+  {
     path: 'new',
     component: NewThemeComponent,
     canActivate: [AuthActivate],
@@ -18,11 +28,6 @@ const routes: Routes = [
       authenticationRequired: true,
       authenticationFailureRedirectUrl: '/',
     }
-  },
- 
-   {
-    path: ':themeId',
-    component: ThemeComponent
   },
   
  

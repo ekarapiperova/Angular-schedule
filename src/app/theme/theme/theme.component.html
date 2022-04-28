@@ -6,8 +6,8 @@
       <div class="theme-name-wrapper">
         <div class="theme-name">
           <p>Worker: {{theme!.username}}</p>
-          <p>Shift: {{theme!.themeName | shorten : 10 }}</p>
-          <p>Date:{{theme!.date}}</p>
+          <p>Shift: {{theme!.themeName }}</p>
+          <p>Date:{{theme!.date| shorten : 10 }}</p>
          
         </div>
   <button class="button" (click)="deleteTheme()" >Delete</button>

@@ -27,10 +27,10 @@ export class RegisterComponent implements OnDestroy {
     private router: Router
   ) {
     this.form = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, emailValidator]],
       type: [''],
-      password: ['', [Validators.required, Validators.minLength(4)]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
       rePassword: ['', [Validators.required, sameValueAsFactory(
         () => this.form?.get('password'), this.killSubscription
       )]]

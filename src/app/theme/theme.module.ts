@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ThemeRoutingModule,
+    
   ]
 })
 export class ThemeModule { }
