@@ -31,19 +31,17 @@
         <p>Type: </p>
         <p>{{user!.type}}</p>
       </div>
-      <div class="">
-        <div class="theme" *ngIf="themes">
-          <p>Shifts: </p>
-          <div *ngFor="let theme of themes" class="theme-container">
-           
+      <div class="flex" >
+        <p>Shifts: </p>
+        <div  class="theme" *ngIf="themes">
+       
+          <div *ngFor="let theme of themes" class="theme-container">           
                   <div> 
-                    <p>Date:{{theme.date}} {{theme.themeName | shorten : 10}}</p>              
-                   
+                    <p>{{theme.date | shorten : 10}} {{theme.themeName | shorten : 10}}</p>   
                   </div>
-          </div>
-        </div>
-        <div *ngIf="!themes">Loading...</div>
-      
+          </div>      
+        </div> 
+         <div *ngIf="!themes">None</div>      
       </div>
       <button (click)="inUpdateMode = true" class="edit-button">Edit</button>
     </ng-container>

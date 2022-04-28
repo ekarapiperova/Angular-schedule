@@ -7,7 +7,7 @@
       <!-- username -->
       <p class="field field-icon">
         <label for="username"><span><i class="fas fa-user"></i></span></label>
-        <input class="input-error" type="text" name="username" id="username" placeholder="Johny"
+        <input class="input-error" type="text" name="username" id="username" placeholder="Name"
           formControlName="username">
       </p>
       <ng-container *ngIf="form.get('username')?.touched">
@@ -15,14 +15,14 @@
           Username is required!
         </p>
         <p *ngIf="form.get('username')?.errors?.minlength" class="error">
-          Username should be > 4
+          Username should be > 5
         </p>
       </ng-container>
 
       <!-- email -->
       <p class="field field-icon">
         <label for="email"><span><i class="fas fa-envelope"></i></span></label>
-        <input type="email" name="email" id="email" placeholder="john.doe@gmail.com" formControlName="email">
+        <input type="email" name="email" id="email" placeholder="email" formControlName="email">
       </p>
 
       <ng-container *ngIf="form.get('email')?.touched">
@@ -69,10 +69,10 @@
 
       <ng-container *ngIf="form.get('rePassword')?.touched">
         <p *ngIf="form.get('rePassword')?.errors?.required" class="error">
-          Repeat Password is required!
+           Password is required!
         </p>
         <p *ngIf="form.get('rePassword')?.errors?.sameValue" class="error">
-          Repeat Password does not match password!
+           Password does not match password!
         </p>
       </ng-container>
 

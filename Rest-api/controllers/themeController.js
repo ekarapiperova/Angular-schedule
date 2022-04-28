@@ -9,9 +9,8 @@ function getThemes(req, res, next) {
 }
 
 function getMyThemes(req, res, next) {
-    const { username } = req.params;
-
-    themeModel.find({ username: username })
+    const { username} = req.params;
+    themeModel.find({username:username})
         .then(theme => res.json(theme))
         .catch(next);
 }

@@ -7,7 +7,7 @@ const { themeController, postController } = require('../controllers');
 
 //router.get('/', themeController.getThemes);
 router.get('/', themeController.sortbyDate );
-//router.get('/:username', themeController.getMyThemes );
+router.get('/:username', themeController.getMyThemes );
 router.delete('/:themeId', auth(), themeController.deleteTheme);
 
 

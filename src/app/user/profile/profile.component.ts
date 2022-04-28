@@ -19,8 +19,10 @@ export class ProfileComponent {
   get user() {
     return this.userService.user;
   }
-  themes: ITheme[] | undefined;
- 
+  get username(): string {
+    return this.userService.user?.username || '';
+  }
+  themes: ITheme[] | undefined; 
   
   constructor(
     private userService: UserService,
@@ -47,10 +49,9 @@ export class ProfileComponent {
     })
   }
    fetchMyThemes(): void {
-    this.themes = undefined;
-    
-        console.log(this.userService);
-  // this.contentService.getMyThemes(this.username).subscribe(themes => this.themes = themes);
+    this.themes = undefined;    
+        console.log(this.username);
+   this.contentService.getMyThemes(this.username).subscribe(themes => this.themes = themes);
   }
 
 }
