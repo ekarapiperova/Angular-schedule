@@ -1,27 +1,36 @@
-# WorkshopO1
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
-
-## Development server
-
+# This is app for work schedule
+This is an app where you can add your work shifts for ypur workers, you can add or delete the shift.
+## Start New Application
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Start REST Server
+cd reactAPi npm start work on port:3000
+## Create file themeServices.js - all fetch request from back-end
+loadTheme(),loadThemes(),getMyThemes(),saveTheme(),deleteTheme()
+## Create Theme func Component / view one theme info by id
+## Create Themes func Component / view for all themes
+ fetchThemes(): void {
+    this.themes = undefined;
+    this.contentService.loadThemes().subscribe(themes => this.themes = themes);
+  }
+## Create New theme func Component
+### function for new theme save
+ createTheme(form: NgForm): void {
+    if (form.invalid) { return; }
+    this.contentService.saveTheme(form.value).subscribe({
+      next: () => {
+        this.router.navigate(['/theme']);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+### form for new shift
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Add UserService 
+login(), register(), logout
+## Login and Register component
 
-## Build
+## Create user profile
+In this page ypu can edit user's email, you can see list of one user's shifts
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

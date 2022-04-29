@@ -28,11 +28,12 @@ export class ProfileComponent {
     private userService: UserService,
     private contentService: ContentService, 
      private activatedRoute: ActivatedRoute
-  ) {
+  ) { 
+    this.fetchMyThemes();
     this.userService.getProfileInfo().subscribe(() => {
       this.isLoading = false;
     });
-   this.fetchMyThemes();
+  
     
   }
 
@@ -49,9 +50,13 @@ export class ProfileComponent {
     })
   }
    fetchMyThemes(): void {
-    this.themes = undefined;    
-        console.log(this.username);
-   this.contentService.getMyThemes(this.username).subscribe(themes => this.themes = themes);
+    this.contentService.getMyThemes(this.username).subscribe(themes => this.themes = themes);
+  }
+  fetchTheme(): void {
+    this.themes = undefined;
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log(this.activatedRoute.snapshot.params);
+    this.contentService.getMyThemes(id).subscribe(themes => this.themes = themes);
   }
 
 }

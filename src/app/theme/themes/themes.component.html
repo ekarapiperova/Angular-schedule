@@ -7,19 +7,19 @@
       <div class="columns">
         <p>Date</p>
         <p>Shift</p>
-        <p>Worker</p>
-                  
+        <p>Worker</p>                  
       </div>
-      <div *ngFor="let theme of themes" class="theme-container">
-        
+      <div *ngFor="let theme of themes" class="theme-container">        
         <div class="theme-name-wrapper">
-          <div class="theme-name">
-           
+          <div class="theme-name">           
             <div class="columns" [routerLink]="['/theme/detail/', theme._id]">
-              <p>{{theme.date | shorten : 10}}</p>
-              <p>{{theme.themeName}}</p>
-              <p>{{theme.username}}</p>
-                        
+              <p *ngIf="theme.username==username" class="myWork">{{theme.date | shorten : 10}}</p>
+              <p *ngIf="theme.username!=username">{{theme.date | shorten : 10}}</p>
+              <p *ngIf="theme.username==username" class="myWork">{{theme.themeName}}</p>
+              <p *ngIf="theme.username!=username" >{{theme.themeName}}</p>
+              <p *ngIf="theme.username==username" class="myWork" >{{theme.username}}</p>    
+              <p *ngIf="theme.username!=username"  >{{theme.username}}</p>                 
+
             </div>
           </div>
         </div>

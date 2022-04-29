@@ -10,7 +10,7 @@
           <p>Date:{{theme!.date| shorten : 10 }}</p>
          
         </div>
-  <button class="button" (click)="deleteTheme()" >Delete</button>
+  <button *ngIf="type!='worker'" class="button" (click)="deleteTheme()" >Delete</button>
       </div>
     </div>   
   </div>
